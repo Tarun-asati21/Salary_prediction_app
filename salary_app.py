@@ -3,7 +3,7 @@ import pickle
 
 mean_experience = 5.2875
 std_experience = 2.88116188
-model = pickle.load(open(r'C:\VScode\Ml\salary_pred.pkl', 'rb'))
+model = pickle.load(open('salary_pred.pkl', 'rb'))
 
 st.title("Salary Prediciton App")
 st.header("Do you have many expectations from your salary??")
