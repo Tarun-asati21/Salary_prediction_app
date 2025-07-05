@@ -15,9 +15,12 @@ if st.button("Predict Salary"):
     if experience_input:
         try:
             experience = float(experience_input)
-            experience_scaled = [[(experience - mean_experience) / std_experience]]
-            prediction = float(model.predict(experience_scaled)[0])
-            st.success(f"Predicted Salary: ₹{prediction:,.2f}")
+            if experience < 0 :
+                st.error("❌ Years of experience cannot be negative. Please enter a valid number.")
+            else :
+                experience_scaled = [[(experience - mean_experience) / std_experience]]
+                prediction = float(model.predict(experience_scaled)[0])
+                st.success(f"Predicted Salary: ₹{prediction:,.2f}")
         except ValueError:
             st.error("❌ Please enter a valid number (e.g., 2, 4.5, 7.25)")
     else:
